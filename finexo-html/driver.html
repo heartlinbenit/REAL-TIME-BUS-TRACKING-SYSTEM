@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="images/jprbus.png" type="">
+
+  <title> JPR BusBuddy </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- font awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+  <style>
+       body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+          
+           
+            align-items: center;
+            height: 100vh;
+        }
+        
+    
+         h1 {
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-size: 24px;
+            color: #333;
+         }
+      .driver-name {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+     .driver-name label {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color:  #007fa4;
+     }
+        .driver-name input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+   
+.toggle-switch {
+            display: inline-block;
+            position: relative;
+            width: 60px;
+            height: 34px;
+            vertical-align: middle;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            border-radius: 34px;
+            transition: .4s;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            border-radius: 50%;
+            transition: .4s;
+        }
+
+        input[type="checkbox"]:checked + .toggle-slider {
+            background-color: #2196F3;
+        }
+
+        input[type="checkbox"]:checked + .toggle-slider:before {
+            transform: translateX(26px);
+        }
+
+        #location-status {
+            margin-top: 20px;
+            font-size: 14px;
+            color: black;
+        }
+
+  </style>
+
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+
+  <!-- <div class="hero_bg_box">
+      <div class="bg_img_box">
+        <img src="images/hero-bg.png" alt="">
+      </div>
+    </div>-->
+
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              <img src="images/jprbus.png" alt="" height="150" width="150">
+              JPR BusBuddy
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item ">
+                <a class="nav-link" href="index.html">Home </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html"> About</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="service.html"><span class="sr-only">(current)</span>Services</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="why.html">Where's my bus  </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="team.html">Help</a>
+              </li>
+             
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+  <!-- why section -->
+  <section class="about_section layout_padding" style="background-color: white;">
+    <div class="container  ">
+      <div class="heading_container heading_center">
+        <h2 style="color: black;">
+          DRI<span>VER</span>
+        </h2>
+        <div class="container">
+          <br>
+          <h1>Location Control</h1>
+  
+          <div class="driver-name">
+              <label for="driver-name-input">Driver Name:</label>
+              <input type="text" id="driver-name-input" placeholder="Enter driver name">
+          </div>
+  
+          <div class="toggle-switch">
+              <input type="checkbox" id="location-toggle">
+              <label class="toggle-slider" for="location-toggle"></label>
+          </div>
+  
+          <p id="location-status">Location turned OFF</p>
+  
+          <!-- Submit button -->
+         
+          <form id="driver-form" >
+              <input type="submit" value="Submit">
+          </form>
+        </div>
+      </div>
+  
+      <!-- Inline JavaScript -->
+      <script>
+          // Get DOM elements
+          const locationToggle = document.getElementById('location-toggle');
+          const locationStatus = document.getElementById('location-status');
+          const form = document.getElementById('driver-form');
+          const driverNameInput = document.getElementById('driver-name-input');
+  
+          // Handle toggle switch change event
+             // Handle form submission event
+          
+        // Handle toggle switch change event
+        locationToggle.addEventListener('change', function() {
+            if (this.checked) {
+                locationStatus.textContent = 'Location turned ON';
+                console.log('Location turned ON');
+                // Add code here to turn on location functionality
+            } else {
+                locationStatus.textContent = 'Location turned OFF';
+                console.log('Location turned OFF');
+                // Add code here to turn off location functionality
+            }
+        });
+          form.addEventListener('submit', function(event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+            
+            // Get the driver's name from the input field
+            const driverName = driverNameInput.value;
+            
+            // Handle the form submission (e.g., further processing, navigation, etc.)
+            alert("Form submitted!");
+            
+            // Add your desired functionality here
+            // For example, you could validate the driver's name, perform some action, etc.
+            
+            // Example: Redirect to another page
+            // window.location.href = '/next-page.html';
+        });
+          
+  
+          // Handle form submission event
+          form.addEventListener('submit', function(event) {
+              // Prevent the default form submission behavior
+              event.preventDefault();
+              
+              // Get the driver's name from the input field
+              const driverName = driverNameInput.value;
+              
+              // Handle the form submission (e.g., further processing, navigation, etc.)
+              console.log(`Form submitted! Driver's name: ${driverName}`);
+              
+              // Add your desired functionality here
+              // For example, you could validate the driver's name, perform some action, etc.
+              
+              // Example: Redirect to another page
+              // window.location.href = '/next-page.html';
+          });
+      </script>
+      </div>
+    
+    </div>
+      
+    
+  </section>
+    
+  <!-- end why section -->
+
+  <!-- info section -->
+
+ 
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_contact">
+            <h4>
+              Address
+            </h4>
+            <div class="contact_link_box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  V68C+G55, Old Mamallapuram Road, SH 49A, Semmancheri, Chennai, Tamil Nadu 600119
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Phone: 044 2450 2818
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  sdc@jeppiaarcollege.org
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+  </section>
+  <!-- end info section -->
+
+  <!-- footer section -->
+  <section class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved 
+     
+      </p>
+    </div>
+  </section>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <!-- owl slider -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- custom js -->
+  <script type="text/javascript" src="js/custom.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+
+</body>
+
+</html>
